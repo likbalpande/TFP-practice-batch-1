@@ -1,0 +1,90 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* body {
+    height: 100vh;
+    width: 100vw;
+}
+
+.parent {
+    width: 90%;
+    height: 60%;
+    background-color: yellow;
+}
+
+.child {
+    width: 50%;
+    height: 20%;
+    background-color: aquamarine;
+    margin: 10px;
+}
+
+.child2 {
+    width: 50%;
+    height: 20%;
+    background-color: aquamarine;
+    margin: 10px;
+} */
+
+/* .child2 {
+    width: 100px;
+    height: 100px;
+    background-color: aquamarine;
+} */
+/* 
+body {
+    background-color: cornsilk;
+}
+
+div {
+    background-color: yellow;
+}
+
+.html-container {
+    /* background-color: red; 
+    width: 200px;
+    margin: 20px;
+    padding: 16px;
+    border: 10px solid black;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.html-container {
+    background-color: aqua;
+} 
+
+.css-info {
+    color: red;
+} */
+
+p {
+    background-color: antiquewhite;
+    width: 200px;
+    height: 100px;
+    margin: auto auto;
+}
+
+span {
+    /* display: none; */
+    /* visibility: hidden; */
+    background-color: rgb(114, 212, 212);
+    width: 200px;
+    height: 100px;
+    /* margin: 100px; */
+    padding: 20px;
+    margin: auto;
+}
+
+p:hover {
+    visibility: visible;
+}
+
+button {
+    background-color: lime;
+    width: 200px;
+    height: 100px;
+}

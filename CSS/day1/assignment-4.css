@@ -1,0 +1,32 @@
+body {
+    padding: 0;
+    margin: 0;
+    background-color: yellow;
+}
+
+.parent {
+    box-sizing: border-box;
+    background-color: orange;
+    padding: 16px;
+}
+
+.child {
+    background-color: lime;
+    padding: 16px;
+}
+
+.container {
+    width: 100vw;
+    padding: 16px;
+    background-color: aqua;
+    box-sizing: border-box;
+}
+
+.container-child {
+    background-color: red;
+    height: 50px;
+}
+
+.new-child {
+    width: 90%;
+}
