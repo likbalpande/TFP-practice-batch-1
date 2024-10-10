@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        .parent {
+            height: 200px;
+            background-color: aqua;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: start;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .item {
+            background-color: yellow;
+            width: 100px;
+            /* flex-basis: 100px; */
+            height: 100px;
+            flex-shrink: 1;
+            flex-grow: 0;
+        }
+
+        .child-3 {
+            /* flex-shrink: 1; */
+            /* order: -100; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <div class="item child-1">1</div>
+        <div class="item child-2">2</div>
+        <div class="item child-3">3</div>
+        <div class="item child-4">4</div>
+        <div class="item child-5">5</div>
+        <div class="item child-6">6</div>
+        <!-- <div class="item child-6">EXTRA</div>
+        <div class="item child-6">EXTRA</div>
+        <div class="item child-6">EXTRA</div>
+        <div class="item child-6">EXTRA</div>
+        <div class="item child-6">EXTRA</div>
+        <div class="item child-6">EXTRA</div>
+        <div class="item child-6">EXTRA</div> -->
+
+    </div>
+</body>
+
+</html>

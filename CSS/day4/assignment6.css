@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #f7f8f9;
+}
+form {
+    background-color: #ffffff;
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 40px 80px;
+    border-radius: 40px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 4px;
+}
+
+form h2 {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+form input {
+    display: block;
+    width: 100%;
+    margin-bottom: 16px;
+    border-radius: 8px;
+    padding: 8px;
+    background-color: #f7f8f9;
+    border: 1px solid #e7eaee;
+
+    /* &:focus {
+        outline: 2px solid red;
+    } */
+}
