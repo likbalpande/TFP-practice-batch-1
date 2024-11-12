@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORM</title>
+    <style>
+        body {
+            padding: 48px;
+        }
+
+        #parent {
+            border: 1px solid black;
+            padding: 48px;
+        }
+
+        #child {
+            border: 1px solid black;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <form onSubmit="handleFormSubmit(event)">
+        <label>Name</label>
+        <input type="text" name="fullname" onkeydown="handleNameKeyDown(event)"><br /><br />
+        <label>Id</label>
+        <input type="text" name="id" onkeyup="handleIdKeyUp(event)"><br /><br />
+        <label>Email</label>
+        <input type="email" name="email" onchange="handleEmailChange(event)"><br /><br />
+        <button>Submit</button>
+    </form>
+
+    <!-- <div id="parent">
+        <div id="child">
+        </div>
+    </div> -->
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
