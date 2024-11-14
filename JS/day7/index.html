@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        nav {
+            padding: 16px;
+            background-color: cyan;
+        }
+
+        nav div:first-child {
+            /* margin: auto; */
+            /* --usable-width: calc(100vw - 32px);
+            --extra-space: calc(var(--usable-width) - 24px);
+            margin-left: calc(var(--extra-space) / 2); */
+            /* margin: 0 auto 0 auto; */
+            margin: 0 12px 0 auto;
+            height: 24px;
+            width: 24px;
+            background-color: chartreuse;
+        }
+
+        #menu-container {
+            position: absolute;
+            display: none;
+            flex-direction: column;
+            background-color: yellow;
+            padding: 16px;
+            gap: 12px;
+            right: 30px;
+            top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div id="menu-icon"></div>
+        <div id="menu-container">
+            <a href="https://www.google.com">Google</a>
+            <a href="https://www.flipkart.com">Flipkart</a>
+            <a href="https://www.amazon.com">Amazon</a>
+        </div>
+    </nav>
+    <script src="./script.js"></script>
+    <script src="./func.js"></script>
+</body>
+
+</html>

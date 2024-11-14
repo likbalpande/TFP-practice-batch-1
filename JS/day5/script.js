@@ -7,12 +7,13 @@
 //     console.log(e.target.value);
 // };
 
-// const handleEmailChange = (e) => {
-//     if (!e.target.validity.valid) {
-//         alert("invalid email");
-//     }
-//     console.log(e.target.value);
-// };
+const handleEmailChange = (e) => {
+    // if (!e.target.validity.valid) {
+    //     alert("invalid email");
+    // }
+    console.log(e.target.value);
+    console.log(e);
+};
 
 // const handleFormSubmit = (e) => {
 //     // e.stopPropagation();
@@ -38,30 +39,32 @@
 
 // BUBBLING CAPTURING
 
-// const parent = document.getElementById("parent");
-// const child = document.getElementById("child");
+const parent = document.getElementById("parent");
+const child = document.getElementById("child");
 
-// const handleParentClick = (e) => {
-//     console.log("PARENT");
-// };
+const handleParentClick = (e) => {
+    console.log("PARENT");
+    console.log(e);
+};
 
-// const handleChildClick = (e) => {
-//     console.log("CHILD");
-//     // e.stopPropagation();
-// };
+const handleChildClick = (e) => {
+    console.log("CHILD");
+    console.log(e);
+    // e.stopPropagation();
+};
 
-// parent.addEventListener("click", handleParentClick, true);
-// parent.addEventListener("click", handleParentClick, false);
+parent.addEventListener("click", handleParentClick, true);
+parent.addEventListener("click", handleParentClick, false);
 
-// child.addEventListener("click", handleChildClick, false);
+child.addEventListener("click", handleChildClick, false);
 
 // --------------------------------------------------
-function sum(a, b) {
-    console.log("sum", a + b);
-}
-sum(10, 20);
-// ----------------------------------
-(function sum(a, b) {
-    console.log("sum", a + b);
-})(10, 20);
+// function sum(a, b) {
+//     console.log("sum", a + b);
+// }
+// sum(10, 20);
+// // ----------------------------------
+// (function sum(a, b) {
+//     console.log("sum", a + b);
+// })(10, 20);
 // IMMEDIATELY INVOKED FUNCTION (Expression)
