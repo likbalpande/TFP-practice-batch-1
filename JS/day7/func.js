@@ -117,7 +117,7 @@
 // obj.username = newValue;
 // console.log(obj);
 
-// -----------------------------------
+// ---------------- INSERT DYNAMIC KEY AND VALUE IN OBJECT -------------------
 
 // const obj = {};
 // const key = prompt("Please provide a key");
