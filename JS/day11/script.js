@@ -1360,4 +1360,4 @@ const deleteCard = (idx) => {
 
 createUI(recipes);
 
-// ------------------ deletion by using card id -------------------------
+// ------------------ deletion by using card id present in the recipe-------------------------
