@@ -68,3 +68,5 @@ child.addEventListener("click", handleChildClick, false);
 //     console.log("sum", a + b);
 // })(10, 20);
 // IMMEDIATELY INVOKED FUNCTION (Expression)
+
+// prevent-default, stop-propagation
