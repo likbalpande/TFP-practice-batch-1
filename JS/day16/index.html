@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS - THE END</title>
+    <style>
+        h3 {
+            text-align: center;
+            color: brown;
+            font-size: 24px;
+            margin: 0 0 16px;
+        }
+
+        section {
+            max-width: 500px;
+            padding: 24px;
+            background-color: yellow;
+            border: 2px solid lightgrey;
+            border-radius: 12px;
+            margin: 24px auto;
+        }
+
+        button {
+            padding: 6px 16px;
+            border-radius: 8px;
+            border: none;
+            outline: none;
+            background-color: darkblue;
+            color: white;
+            cursor: pointer;
+            opacity: 0.7;
+
+            &:hover {
+                scale: 1.05;
+                opacity: 1;
+            }
+
+            &:active {
+                scale: 0.9;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <input type="text" id="color">
+        <button onClick="setColor()">Set</button>
+    </section>
+    <section id="html">
+        <h3>HTML</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius inventore est consequatur maxime deserunt
+            labore iusto fuga, mollitia impedit nesciunt provident nam, molestias facere qui tempore laborum enim quis
+            sit hic quaerat magnam! Voluptas aperiam unde non, suscipit assumenda dolorum voluptate maiores adipisci
+            voluptatem praesentium quas ullam asperiores cum quibusdam ut iusto inventore. Quam sequi enim expedita est
+            ea sit dolorem mollitia odio alias autem? Inventore eaque ea maiores non autem. Quam error, quisquam quae
+            deserunt sunt inventore facere, ipsum eveniet autem deleniti recusandae odit suscipit labore harum minima
+            sint molestiae neque. Aut quae distinctio dolores sint! Consequuntur, beatae culpa!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius inventore est consequatur maxime deserunt
+            labore iusto fuga, mollitia impedit nesciunt provident nam, molestias facere qui tempore laborum enim quis
+            sit hic quaerat magnam! Voluptas aperiam unde non, suscipit assumenda dolorum voluptate maiores adipisci
+            voluptatem praesentium quas ullam asperiores cum quibusdam ut iusto inventore. Quam sequi enim expedita est
+            ea sit dolorem mollitia odio alias autem? Inventore eaque ea maiores non autem. Quam error, quisquam quae
+            deserunt sunt inventore facere, ipsum eveniet autem deleniti recusandae odit suscipit labore harum minima
+            sint molestiae neque. Aut quae distinctio dolores sint! Consequuntur, beatae culpa!</p>
+
+        <button onClick="handleHTML()">HTML</button>
+        <button onClick="handleHTML3()">HTML 3</button>
+        <button onClick="handleCSS()">CSS</button>
+        <button onClick="handleJS()">JS</button>
+        <button onClick="handleReact()">React</button>
+        <a href="./info.html?id=html" target="_blank">OPEN</a>
+    </section>
+    <section id="html3">
+        <h3>HTML 3</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius inventore est consequatur maxime deserunt
+            labore iusto fuga, mollitia impedit nesciunt provident nam, molestias facere qui tempore laborum enim quis
+            sit hic quaerat magnam! Voluptas aperiam unde non, suscipit assumenda dolorum voluptate maiores adipisci
+            voluptatem praesentium quas ullam asperiores cum quibusdam ut iusto inventore. Quam sequi enim expedita est
+            ea sit dolorem mollitia odio alias autem? Inventore eaque ea maiores non autem. Quam error, quisquam quae
+            deserunt sunt inventore facere, ipsum eveniet autem deleniti recusandae odit suscipit labore harum minima
+            sint molestiae neque. Aut quae distinctio dolores sint! Consequuntur, beatae culpa!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius inventore est consequatur maxime deserunt
+            labore iusto fuga, mollitia impedit nesciunt provident nam, molestias facere qui tempore laborum enim quis
+            sit hic quaerat magnam! Voluptas aperiam unde non, suscipit assumenda dolorum voluptate maiores adipisci
+            voluptatem praesentium quas ullam asperiores cum quibusdam ut iusto inventore. Quam sequi enim expedita est
+            ea sit dolorem mollitia odio alias autem? Inventore eaque ea maiores non autem. Quam error, quisquam quae
+            deserunt sunt inventore facere, ipsum eveniet autem deleniti recusandae odit suscipit labore harum minima
+            sint molestiae neque. Aut quae distinctio dolores sint! Consequuntur, beatae culpa!</p>
+        <button onClick="handleHTML()">HTML</button>
+        <button onClick="handleHTML3()">HTML 3</button>
+        <button onClick="handleCSS()">CSS</button>
+        <button onClick="handleJS()">JS</button>
+        <button onClick="handleReact()">React</button>
+        <a href="./info.html?id=html3" target="_blank">OPEN</a>
+    </section>
+    <section id="css">
+        <h3>CSS</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius inventore est consequatur maxime deserunt
+            labore iusto fuga, mollitia impedit nesciunt provident nam, molestias facere qui tempore laborum enim quis
+            sit hic quaerat magnam! Voluptas aperiam unde non, suscipit assumenda dolorum voluptate maiores adipisci
+            voluptatem praesentium quas ullam asperiores cum quibusdam ut iusto inventore. Quam sequi enim expedita est
+            ea sit dolorem mollitia odio alias autem? Inventore eaque ea maiores non autem. Quam error, quisquam quae
+            deserunt sunt inventore facere, ipsum eveniet autem deleniti recusandae odit suscipit labore harum minima
+            sint molestiae neque. Aut quae distinctio dolores sint! Consequuntur, beatae culpa!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius inventore est consequatur maxime deserunt
+            labore iusto fuga, mollitia impedit nesciunt provident nam, molestias facere qui tempore laborum enim quis
+            sit hic quaerat magnam! Voluptas aperiam unde non, suscipit assumenda dolorum voluptate maiores adipisci
+            voluptatem praesentium quas ullam asperiores cum quibusdam ut iusto inventore. Quam sequi enim expedita est
+            ea sit dolorem mollitia odio alias autem? Inventore eaque ea maiores non autem. Quam error, quisquam quae
+            deserunt sunt inventore facere, ipsum eveniet autem deleniti recusandae odit suscipit labore harum minima
+            sint molestiae neque. Aut quae distinctio dolores sint! Consequuntur, beatae culpa!</p>
+        <button onClick="handleHTML()">HTML</button>
+        <button onClick="handleHTML3()">HTML 3</button>
+        <button onClick="handleCSS()">CSS</button>
+        <button onClick="handleJS()">JS</button>
+        <button onClick="handleReact()">React</button>
+        <a href="./info.html?id=css" target="_blank">OPEN</a>
+    </section>
+    <section id="js">
+        <h3>JS</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius inventore est consequatur maxime deserunt
+            labore iusto fuga, mollitia impedit nesciunt provident nam, molestias facere qui tempore laborum enim quis
+            sit hic quaerat magnam! Voluptas aperiam unde non, suscipit assumenda dolorum voluptate maiores adipisci
+            voluptatem praesentium quas ullam asperiores cum quibusdam ut iusto inventore. Quam sequi enim expedita est
+            ea sit dolorem mollitia odio alias autem? Inventore eaque ea maiores non autem. Quam error, quisquam quae
+            deserunt sunt inventore facere, ipsum eveniet autem deleniti recusandae odit suscipit labore harum minima
+            sint molestiae neque. Aut quae distinctio dolores sint! Consequuntur, beatae culpa!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius inventore est consequatur maxime deserunt
+            labore iusto fuga, mollitia impedit nesciunt provident nam, molestias facere qui tempore laborum enim quis
+            sit hic quaerat magnam! Voluptas aperiam unde non, suscipit assumenda dolorum voluptate maiores adipisci
+            voluptatem praesentium quas ullam asperiores cum quibusdam ut iusto inventore. Quam sequi enim expedita est
+            ea sit dolorem mollitia odio alias autem? Inventore eaque ea maiores non autem. Quam error, quisquam quae
+            deserunt sunt inventore facere, ipsum eveniet autem deleniti recusandae odit suscipit labore harum minima
+            sint molestiae neque. Aut quae distinctio dolores sint! Consequuntur, beatae culpa!</p>
+        <button onClick="handleHTML()">HTML</button>
+        <button onClick="handleHTML3()">HTML 3</button>
+        <button onClick="handleCSS()">CSS</button>
+        <button onClick="handleJS()">JS</button>
+        <button onClick="handleReact()">React</button>
+        <a href="./info.html?id=js" target="_blank">OPEN</a>
+    </section>
+    <section id="react">
+        <h3>REACT</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius inventore est consequatur maxime deserunt
+            labore iusto fuga, mollitia impedit nesciunt provident nam, molestias facere qui tempore laborum enim quis
+            sit hic quaerat magnam! Voluptas aperiam unde non, suscipit assumenda dolorum voluptate maiores adipisci
+            voluptatem praesentium quas ullam asperiores cum quibusdam ut iusto inventore. Quam sequi enim expedita est
+            ea sit dolorem mollitia odio alias autem? Inventore eaque ea maiores non autem. Quam error, quisquam quae
+            deserunt sunt inventore facere, ipsum eveniet autem deleniti recusandae odit suscipit labore harum minima
+            sint molestiae neque. Aut quae distinctio dolores sint! Consequuntur, beatae culpa!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius inventore est consequatur maxime deserunt
+            labore iusto fuga, mollitia impedit nesciunt provident nam, molestias facere qui tempore laborum enim quis
+            sit hic quaerat magnam! Voluptas aperiam unde non, suscipit assumenda dolorum voluptate maiores adipisci
+            voluptatem praesentium quas ullam asperiores cum quibusdam ut iusto inventore. Quam sequi enim expedita est
+            ea sit dolorem mollitia odio alias autem? Inventore eaque ea maiores non autem. Quam error, quisquam quae
+            deserunt sunt inventore facere, ipsum eveniet autem deleniti recusandae odit suscipit labore harum minima
+            sint molestiae neque. Aut quae distinctio dolores sint! Consequuntur, beatae culpa!</p>
+        <button onClick="handleHTML()">HTML</button>
+        <button onClick="handleHTML3()">HTML 3</button>
+        <button onClick="handleCSS()">CSS</button>
+        <button onClick="handleJS()">JS</button>
+        <button onClick="handleReact()">React</button>
+        <a href="./info.html?id=react" target="_blank">OPEN</a>
+    </section>
+    <script src="./script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INFO PAGE</title>
+</head>
+
+<body>
+    <h2>INFO PAGE</h2>
+    <p></p>
+    <script>
+        const data = {
+            html: "HYPER TEXT MARKUP LANGUAGE",
+            html3: "Kuch to tha!",
+            css: "Styling rule set",
+            js: "I am a popular programming language of the WEB",
+            react: "I am React! A library of JS",
+        }
+        const id = new URLSearchParams(window.location.search).get("id")
+        document.getElementsByTagName('p')[0].innerHTML = data[id]
+
+    </script>
+</body>
+
+</html>
