@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Day-17</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        form {
+            padding: 24px;
+            background-color: yellow;
+            max-width: 400px;
+            margin: 24px;
+        }
+
+        .container {
+            padding: 16px 16px;
+            margin: 16px 0;
+            border: 1px solid grey;
+        }
+
+        #results {
+            font-size: 14px;
+        }
+
+        #results p {
+            margin: 8px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            background-color: lightpink;
+        }
+
+        #cards {
+            padding: 24px;
+            background-color: lime;
+            max-width: 400px;
+            margin: 24px;
+        }
+
+        .card {
+            margin: 8px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            background-color: lightpink;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>My Website</h1>
+    <form onsubmit="handleSubmit(event)">
+        <div class="container">
+            <label>Name</label>
+            <input name='username' type="text" onkeyup="handleName(event)">
+        </div>
+        <div class="container">
+            <label>City</label>
+            <input name='city' type="text" id="search-box" onkeyup="handleSearch(event)">
+            <div id="results"></div>
+        </div>
+        <button>Submit</button>
+    </form>
+    <div id="cards"></div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
