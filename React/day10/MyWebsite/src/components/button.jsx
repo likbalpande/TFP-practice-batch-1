@@ -1,7 +1,7 @@
 import "./button.css";
 import PropTypes from "prop-types";
 
-const Button = ({ children, className, onClick }) => {
+const Button = ({ children, className = "", onClick }) => {
     return (
         <button className={`ui-component-button ${className}`} onClick={onClick}>
             {children}

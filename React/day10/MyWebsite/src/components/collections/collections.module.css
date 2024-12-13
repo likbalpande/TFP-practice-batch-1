@@ -1,0 +1,13 @@
+.main_container {
+    display: grid;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+@media (min-width: 600px) {
+    .main_container {
+        padding-top: 3rem;
+        justify-content: center;
+        grid-template-columns: repeat(auto-fit, 20rem);
+    }
+}

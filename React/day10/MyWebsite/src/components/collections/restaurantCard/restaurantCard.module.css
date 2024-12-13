@@ -1,0 +1,71 @@
+.main_container {
+    border-radius: 0.5rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    overflow: hidden;
+}
+
+.image_container {
+    height: 10rem;
+    overflow: hidden;
+
+    img {
+        width: 100%;
+    }
+}
+
+.info_container {
+    padding: 0.4rem 0.75rem 0.75rem;
+    display: flex;
+    justify-content: space-between;
+
+    .left_info {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+
+        h3,
+        h4,
+        h5,
+        p {
+            font-family: Okra, Helvetica, sans-serif;
+        }
+
+        h4,
+        h5 {
+            font-weight: 400;
+        }
+
+        p {
+            font-size: 0.75rem;
+            color: #e5521f;
+        }
+
+        span::after {
+            content: ", ";
+        }
+
+        span:last-of-type::after {
+            content: " ";
+        }
+    }
+
+    .right_info {
+        p {
+            display: flex;
+            align-items: center;
+
+            background-color: #267e3e;
+            padding: 0.15rem 0.25rem;
+            border-radius: 0.25rem;
+            color: #fff;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.15rem;
+
+            svg {
+                font-size: 0.6rem;
+                margin-left: 0.1rem;
+            }
+        }
+    }
+}

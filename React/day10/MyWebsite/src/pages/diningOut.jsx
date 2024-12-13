@@ -1,3 +1,4 @@
+import Collections from "../components/collections/collections";
 import Navbar from "../components/navbar";
 
 const DiningOut = () => {
@@ -5,8 +6,8 @@ const DiningOut = () => {
         <div>
             <Navbar />
             {/* <AddressBar />
-            <CategoryBar />
-            <Collections /> */}
+            <CategoryBar /> */}
+            <Collections />
         </div>
     );
 };
