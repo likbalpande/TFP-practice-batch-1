@@ -1,0 +1,13 @@
+.navbar-main-container {
+    padding: 1rem 2rem;
+    background-color: rgba(127, 255, 212, 0.8);
+    display: flex;
+    justify-content: space-between;
+
+    .right {
+        display: flex;
+        gap: 2rem;
+        color: brown;
+        font-weight: 600;
+    }
+}

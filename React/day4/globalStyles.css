@@ -1,0 +1,43 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.sign-up-form {
+    margin: 24px auto;
+    width: 400px;
+    padding: 24px;
+    background-color: bisque;
+
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background-color: rgba(95, 158, 160, 0.2);
+    padding: 8px;
+}
+
+.ui-button {
+    padding: 8px 16px;
+}
+
+.ui-button.theme-primary {
+    background-color: white;
+    color: black;
+}
+
+.ui-button.theme-secondary {
+    background-color: black;
+    color: white;
+}
+
+.ui-button.theme-danger {
+    background-color: transparent;
+    color: red;
+    border: 2px solid red;
+}

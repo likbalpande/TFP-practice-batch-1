@@ -1,0 +1,17 @@
+.navbar-main-container {
+    display: flex;
+    padding: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 6px -6px;
+
+    .zomato-logo {
+        width: 5.875rem;
+    }
+
+    .right-nav {
+        display: flex;
+        align-items: center;
+        gap: 0.625rem;
+    }
+}

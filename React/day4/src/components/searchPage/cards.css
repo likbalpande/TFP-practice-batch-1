@@ -1,0 +1,9 @@
+.cards-main-container {
+    padding: 1.5rem;
+    background-color: yellow;
+
+    .right {
+        color: red;
+        font-weight: 600;
+    }
+}
