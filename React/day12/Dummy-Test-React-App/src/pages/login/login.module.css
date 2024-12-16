@@ -1,0 +1,17 @@
+.form_container {
+    width: 400px;
+    margin: auto;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    border: 2px solid brown;
+    margin-top: 2rem;
+}
+
+.input_container {
+    padding: 0.5rem;
+
+    label {
+        margin-right: 1rem;
+        font-size: 1.25rem;
+    }
+}
