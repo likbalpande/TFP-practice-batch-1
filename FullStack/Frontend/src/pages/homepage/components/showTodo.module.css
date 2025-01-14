@@ -1,0 +1,12 @@
+.main_container {
+    display: flex;
+    gap: 2rem;
+    padding: 1rem;
+    flex-wrap: wrap;
+}
+
+.todo_container {
+    background-color: yellow;
+    padding: 1rem;
+    max-width: 300px;
+}

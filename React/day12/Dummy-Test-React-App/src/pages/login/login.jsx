@@ -3,6 +3,7 @@ import Navbar from "../../components/navbar/navbar";
 import PropTypes from "prop-types";
 import { useState } from "react";
 const Login = ({ setData }) => {
+    console.log("Login re-rendered");
     const [email, setEmail] = useState("");
     const handleSubmit = (e) => {
         e.preventDefault();

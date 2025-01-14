@@ -1,0 +1,15 @@
+.main_container {
+    background-color: #2b2631;
+    padding: 1rem;
+
+    a {
+        color: white;
+        margin-right: 1rem;
+        font-size: 1.25rem;
+    }
+}
+
+.secondary {
+    margin: -1rem -2rem 0;
+    color: white;
+}

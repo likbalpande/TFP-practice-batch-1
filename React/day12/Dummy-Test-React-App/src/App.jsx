@@ -7,11 +7,11 @@ import { useState } from "react";
 import AuthContext from "./context/authContext";
 
 function App() {
+    console.log("App re-rendered");
     const [data, setData] = useState({});
     const valueObj = {
         auth: data,
     };
-
     return (
         <AuthContext.Provider value={valueObj}>
             <BrowserRouter>

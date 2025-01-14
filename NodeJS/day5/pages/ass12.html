@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 11 - Layout</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 32px;
+            background-color: #282d70;
+            gap: 140px;
+
+            .left-nav {
+                display: flex;
+                align-items: center;
+                gap: 24px;
+            }
+        }
+
+        .link-item {
+            background-color: aliceblue;
+            padding: 4px 8px;
+            border-top-right-radius: 12px;
+            border-bottom-left-radius: 12px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 600ms ease-in-out;
+
+            &:hover {
+                border-top-right-radius: 0;
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 12px;
+                border-top-left-radius: 12px;
+                border: 2px solid #3f4ae8;
+            }
+        }
+
+        .search-container {
+            flex-grow: 1;
+            max-width: 400px;
+            display: flex;
+            align-items: center;
+            /* background-color: aqua; */
+        }
+
+        .search-input {
+            border-top-left-radius: 12px;
+            border-bottom-left-radius: 12px;
+            padding: 8px 16px;
+            outline: none;
+            border: 1px solid lightgrey;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        .search-button {
+            padding: 4.5px 14px 4.5px;
+            outline: none;
+            border: 1px solid lightgrey;
+            border-left: none;
+            background-color: white;
+            border-top-right-radius: 12px;
+            border-bottom-right-radius: 12px;
+            cursor: pointer;
+            transition: all 300ms ease;
+
+            img {
+                height: 22px;
+            }
+
+            &:hover {
+                background-color: #f0f0f0;
+            }
+        }
+
+        .menu {
+            background-color: cadetblue;
+            height: 36px;
+            width: 36px;
+            border: 3px solid burlywood;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 600ms ease-in-out;
+
+            &:hover {
+                border: 6px dashed burlywood;
+            }
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            grid-auto-rows: auto;
+            padding: 0 16px;
+        }
+
+        aside {
+            background-color: rgba(123, 129, 213, 0.424);
+            padding: 48px 16px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            justify-content: flex-start;
+        }
+
+        .aside-text {
+            font-size: 16px;
+            font-family: sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 12px 16px;
+            border-radius: 8px;
+            transition: all 300ms ease-in-out;
+            color: #252525;
+
+            &:hover {
+                cursor: pointer;
+                background-color: rgba(123, 129, 213, 0.424);
+            }
+
+            #bootstrap-icon {
+                margin-right: 4px;
+            }
+
+            .icon-img {
+                height: 20px;
+                width: 20px;
+                margin-right: 4px;
+            }
+        }
+
+        .img-container {
+            img {
+                width: 100%;
+            }
+        }
+
+        .card-container {
+            --card-height: fit-content;
+            --card-width: 260px;
+            --card-padding: 4px;
+            --card-image-height: 142px;
+            --card-title-container-height: 34px;
+            --card-title-container-top-margin-height: 8px;
+            --card-meta-data-container-height: 14px;
+            --card-meta-data-container-top-margin-height: 8px;
+            display: grid;
+            padding: 24px 8px 24px 24px;
+            grid-template-columns: repeat(auto-fit, var(--card-width));
+            gap: 24px 8px;
+            align-items: center;
+            justify-content: center;
+            justify-items: center;
+        }
+
+        .card {
+            position: relative;
+            height: var(--card-height);
+            width: var(--card-width);
+            background-color: lightgray;
+            padding: var(--card-padding);
+
+            .image-hover-icons {
+                display: none;
+                height: 32px;
+                width: 32px;
+                background-color: black;
+                position: absolute;
+                right: 14px;
+                z-index: 1;
+                border-radius: 4px;
+                padding: 4px;
+
+                img {
+                    color: white;
+                    filter: invert(100%);
+                    height: 100%;
+                }
+            }
+
+            .watch-later-icon {
+                top: 14px;
+            }
+
+            .add-to-playlist-icon {
+                top: 50px;
+            }
+
+            &:hover {
+                cursor: pointer;
+
+                .image-hover-icons {
+                    transition: all 300ms ease-in-out;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .default-preview {
+                    transition: all 600ms ease-in-out;
+                    opacity: 0;
+                }
+
+                .hover-preview {
+                    display: block;
+                }
+            }
+        }
+
+        .real-card {
+            background-color: transparent !important;
+        }
+
+        .video-time {
+            position: absolute;
+            top: calc(var(--card-image-height) - 24px);
+            right: 16px;
+            background-color: rgba(18, 18, 1, 0.6);
+            color: white;
+            z-index: 2;
+            padding: 2px 4px;
+            font-size: 14px;
+            border-radius: 4px;
+            letter-spacing: 1px;
+        }
+
+        .card-image-container {
+            height: var(--card-image-height);
+            background-color: #999999;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+
+            img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+            }
+
+            .hover-preview {
+                display: none;
+            }
+        }
+
+        .card-title-container {
+            height: var(--card-title-container-height);
+            margin-top: var(--card-title-container-top-margin-height);
+            background-color: #999999;
+            padding: 0 12px 0 4px;
+            border-radius: 8px;
+            position: relative;
+
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            font-family: sans-serif;
+            font-size: 14px;
+
+            .vertical-dots-icon {
+                position: absolute;
+                right: -4px;
+                top: 4px;
+
+                &:hover {
+                    background-color: rgba(128, 128, 128, 0.7);
+                    border-radius: 16px;
+                }
+            }
+        }
+
+        .card-meta-data-container {
+            height: var(--card-meta-data-container-height);
+            margin-top: var(--card-meta-data-container-top-margin-height);
+            background-color: #999999;
+            border-radius: 8px;
+
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #606060;
+            padding: 0 4px;
+
+            p {
+                height: 4px;
+                width: 4px;
+                background-color: #606060;
+                border-radius: 50%;
+            }
+        }
+
+        .mobile-menu-container {
+            display: none;
+        }
+
+        @media (width <=768px) {
+            section {
+                width: 95vw;
+                margin: auto;
+            }
+
+            .search-container {
+                display: none;
+            }
+
+            aside {
+                display: none;
+            }
+
+            main {
+                --card-height: 180px;
+                --card-width: 100%;
+                grid-template-columns: 1fr;
+                grid-auto-rows: auto;
+            }
+
+            .mobile-menu-container {
+                display: flex;
+                gap: 24px;
+                overflow: scroll;
+
+                label {
+                    display: block;
+                    width: 100px;
+                    font-size: 18px;
+                    padding: 8px 8px 4px;
+                    color: #606060;
+
+                    &.active {
+                        color: black;
+                        border-bottom: 2px solid black;
+                    }
+                }
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="left-nav">
+            <p class="link-item"><a>Home</a></p>
+            <p class="link-item"><a>About</a></p>
+            <p class="link-item"><a>Help</a></p>
+        </div>
+        <div class="search-container">
+            <input class="search-input" placeholder="Search" />
+            <button class="search-button"><img src="./search_icon.svg" /></button>
+        </div>
+        <div>
+            <!-- <img class='icon-img' src="./subscriptions.svg" /> -->
+            <div class="menu"></div>
+        </div>
+    </nav>
+    <main>
+        <aside>
+            <p class="aside-text">
+                <svg id="bootstrap-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z" />
+                </svg> Home
+            </p>
+            <p class="aside-text"><img class='icon-img' src="./subscriptions.svg" />Subscriptions</p>
+            <p class="aside-text"><img class='icon-img' src="./your_channel.svg">Your Channel</p>
+            <p class="aside-text"><img class='icon-img' src="./history.svg" />History</p>
+            <p class="aside-text"><img class='icon-img' src="./playlist.svg" />Playlists</p>
+            <p class="aside-text"><img class='icon-img' src="./video.svg" />Your Videos</p>
+            <p class="aside-text"><img class='icon-img' src="./two_watch.svg" />Watch Later</p>
+            <p class="aside-text"><img class='icon-img' src="./thumbs_up.svg" />Liked Videos</p>
+        </aside>
+        <section>
+            <div class="img-container">
+                <img
+                    src="https://yt3.googleusercontent.com/M61UD7JKf1Ri97Bfhg_p5eW05SzoFdJZBCZ4ZCfMuZx53DbbWmGbsyiPXAka2hIkt2Hzyf2bqw=w2560-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj">
+            </div>
+            <div class="mobile-menu-container">
+                <label>Home</label>
+                <label class="active">Videos</label>
+                <label>Shorts</label>
+                <label>Live</label>
+                <label>Playlists</label>
+                <label>Community</label>
+                <label>Search</label>
+                <label>About</label>
+            </div>
+            <div class="card-container">
+                <div class="card real-card">
+                    <p class="video-time">10:00</p>
+                    <div class="image-hover-icons add-to-playlist-icon">
+                        <img src="./playlist.svg">
+                    </div>
+                    <div class="image-hover-icons watch-later-icon">
+                        <img src="./two_watch.svg">
+                    </div>
+                    <div class="card-image-container">
+                        <img class="hover-preview"
+                            src="https://i.ytimg.com/an_webp/qIIExsfKDpE/mqdefault_6s.webp?du=3000&sqp=CMnp07gG&rs=AOn4CLDRkf2krO3xGAgL2MdQKUHOi5Q6nA">
+                        <img class="default-preview"
+                            src="https://i.ytimg.com/vi/qIIExsfKDpE/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLC4A_co7IvbdXURIvC-xgN7Jj4NCA">
+                    </div>
+                    <div class="card-title-container real-card">How many Swap Operation does Insertion Sort Really
+                        Need? | Amazon
+                        Interview Question | L-42<img class='vertical-dots-icon' src="./vertical_dots.svg"></div>
+                    <div class="card-meta-data-container real-card">87k views <p></p> 4 weeks ago</div>
+                </div>
+                <div class="card real-card">
+                    <p class="video-time">10:00</p>
+                    <div class="image-hover-icons add-to-playlist-icon">
+                        <img src="./playlist.svg">
+                    </div>
+                    <div class="image-hover-icons watch-later-icon">
+                        <img src="./two_watch.svg">
+                    </div>
+                    <div class="card-image-container">
+                        <img class="hover-preview"
+                            src="https://i.ytimg.com/an_webp/rGla4fOMPtU/mqdefault_6s.webp?du=3000&sqp=CNn607gG&rs=AOn4CLAS7e8TC8Gvrb2Sw1XWhGdx0xsibw">
+                        <img class="default-preview"
+                            src="https://i.ytimg.com/vi/rGla4fOMPtU/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBv2q4fdtNlU3fdwKYCJArJQCbxCg">
+                    </div>
+                    <div class="card-title-container"><img class='vertical-dots-icon' src="./vertical_dots.svg"></div>
+                    <div class="card-meta-data-container"></div>
+                </div>
+                <div class="card">
+                    <p class="video-time">10:00</p>
+                    <div class="image-hover-icons add-to-playlist-icon"></div>
+                    <div class="image-hover-icons watch-later-icon"></div>
+                    <div class="card-image-container"></div>
+                    <div class="card-title-container"><img class='vertical-dots-icon' src="./vertical_dots.svg"></div>
+                    <div class="card-meta-data-container"></div>
+                </div>
+                <div class="card">
+                    <p class="video-time">10:00</p>
+                    <div class="image-hover-icons add-to-playlist-icon"></div>
+                    <div class="image-hover-icons watch-later-icon"></div>
+                    <div class="card-image-container"></div>
+                    <div class="card-title-container"><img class='vertical-dots-icon' src="./vertical_dots.svg"></div>
+                    <div class="card-meta-data-container"></div>
+                </div>
+                <div class="card">
+                    <p class="video-time">10:00</p>
+                    <div class="image-hover-icons add-to-playlist-icon"></div>
+                    <div class="image-hover-icons watch-later-icon"></div>
+                    <div class="card-image-container"></div>
+                    <div class="card-title-container"><img class='vertical-dots-icon' src="./vertical_dots.svg"></div>
+                    <div class="card-meta-data-container"></div>
+                </div>
+                <div class="card">
+                    <p class="video-time">10:00</p>
+                    <div class="image-hover-icons add-to-playlist-icon"></div>
+                    <div class="image-hover-icons watch-later-icon"></div>
+                    <div class="card-image-container"></div>
+                    <div class="card-title-container"><img class='vertical-dots-icon' src="./vertical_dots.svg"></div>
+                    <div class="card-meta-data-container"></div>
+                </div>
+                <div class="card">
+                    <p class="video-time">10:00</p>
+                    <div class="image-hover-icons add-to-playlist-icon"></div>
+                    <div class="image-hover-icons watch-later-icon"></div>
+                    <div class="card-image-container"></div>
+                    <div class="card-title-container"><img class='vertical-dots-icon' src="./vertical_dots.svg"></div>
+                    <div class="card-meta-data-container"></div>
+                </div>
+                <div class="card">
+                    <p class="video-time">10:00</p>
+                    <div class="image-hover-icons add-to-playlist-icon"></div>
+                    <div class="image-hover-icons watch-later-icon"></div>
+                    <div class="card-image-container"></div>
+                    <div class="card-title-container"><img class='vertical-dots-icon' src="./vertical_dots.svg"></div>
+                    <div class="card-meta-data-container"></div>
+                </div>
+                <div class="card">
+                    <p class="video-time">10:00</p>
+                    <div class="image-hover-icons add-to-playlist-icon"></div>
+                    <div class="image-hover-icons watch-later-icon"></div>
+                    <div class="card-image-container"></div>
+                    <div class="card-title-container"><img class='vertical-dots-icon' src="./vertical_dots.svg"></div>
+                    <div class="card-meta-data-container"></div>
+                </div>
+                <div class="card">
+                    <p class="video-time">10:00</p>
+                    <div class="image-hover-icons add-to-playlist-icon"></div>
+                    <div class="image-hover-icons watch-later-icon"></div>
+                    <div class="card-image-container"></div>
+                    <div class="card-title-container"><img class='vertical-dots-icon' src="./vertical_dots.svg"></div>
+                    <div class="card-meta-data-container"></div>
+                </div>
+                <div class="card">
+                    <p class="video-time">10:00</p>
+                    <div class="image-hover-icons add-to-playlist-icon"></div>
+                    <div class="image-hover-icons watch-later-icon"></div>
+                    <div class="card-image-container"></div>
+                    <div class="card-title-container"><img class='vertical-dots-icon' src="./vertical_dots.svg"></div>
+                    <div class="card-meta-data-container"></div>
+                </div>
+                <div class="card">
+                    <p class="video-time">10:00</p>
+                    <div class="image-hover-icons add-to-playlist-icon"></div>
+                    <div class="image-hover-icons watch-later-icon"></div>
+                    <div class="card-image-container"></div>
+                    <div class="card-title-container"><img class='vertical-dots-icon' src="./vertical_dots.svg"></div>
+                    <div class="card-meta-data-container"></div>
+                </div>
+                <div class="card">
+                    <p class="video-time">10:00</p>
+                    <div class="image-hover-icons add-to-playlist-icon"></div>
+                    <div class="image-hover-icons watch-later-icon"></div>
+                    <div class="card-image-container"></div>
+                    <div class="card-title-container"><img class='vertical-dots-icon' src="./vertical_dots.svg"></div>
+                    <div class="card-meta-data-container"></div>
+                </div>
+                <div class="card">
+                    <p class="video-time">10:00</p>
+                    <div class="image-hover-icons add-to-playlist-icon"></div>
+                    <div class="image-hover-icons watch-later-icon"></div>
+                    <div class="card-image-container"></div>
+                    <div class="card-title-container"><img class='vertical-dots-icon' src="./vertical_dots.svg"></div>
+                    <div class="card-meta-data-container"></div>
+                </div>
+                <div class="card">
+                    <p class="video-time">10:00</p>
+                    <div class="image-hover-icons add-to-playlist-icon"></div>
+                    <div class="image-hover-icons watch-later-icon"></div>
+                    <div class="card-image-container"></div>
+                    <div class="card-title-container"><img class='vertical-dots-icon' src="./vertical_dots.svg"></div>
+                    <div class="card-meta-data-container"></div>
+                </div>
+                <div class="card">
+                    <p class="video-time">10:00</p>
+                    <div class="image-hover-icons add-to-playlist-icon"></div>
+                    <div class="image-hover-icons watch-later-icon"></div>
+                    <div class="card-image-container"></div>
+                    <div class="card-title-container"><img class='vertical-dots-icon' src="./vertical_dots.svg"></div>
+                    <div class="card-meta-data-container"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
