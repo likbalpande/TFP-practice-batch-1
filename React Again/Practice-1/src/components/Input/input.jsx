@@ -1,22 +1,18 @@
 import PropTypes from "prop-types";
-import styles from "./button.module.css";
+import styles from "./input.module.css";
 
-const Button = ({ type, children, disabled, onClick }) => {
+const Input = ({ type, placeholder, name, disabled }) => {
     return (
         <button
             className={`${styles.basic_button} ${styles[type]} ${disabled === true ? styles.disabled : ""}`}
-            onClick={onClick}
-        >
-            {children}
-        </button>
+        ></button>
     );
 };
 
-Button.propTypes = {
+Input.propTypes = {
     type: PropTypes.string,
     children: PropTypes.string,
     disabled: PropTypes.bool,
-    onClick: PropTypes.func,
 };
 
-export default Button;
+export default Input;

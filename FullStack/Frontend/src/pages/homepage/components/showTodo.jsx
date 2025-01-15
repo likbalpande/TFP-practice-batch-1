@@ -1,16 +1,21 @@
 import styles from "./showTodo.module.css";
 import PropTypes from "prop-types";
 
-const ShowTodo = ({ todoList, setSingleTodo, setIsEditing }) => {
+const ShowTodo = ({ handleDelete, todoList, setSingleTodo, setIsEditing }) => {
+    console.log("re-rendered, ShowTodo Component");
+
     const handleEdit = (obj) => {
         setIsEditing(obj._id);
-        setSingleTodo(obj);
+        const newObj = { ...obj };
+        newObj.deadline = obj.deadline.split("T")[0];
+        setSingleTodo(newObj);
     };
     return (
         <div className={styles.main_container}>
             {todoList.map((elem) => (
                 <div key={elem._id} className={styles.todo_container}>
                     <button onClick={() => handleEdit(elem)}>Edit</button>
+                    <button onClick={() => handleDelete(elem._id)}>Delete</button>
                     <div>
                         <label>title:{elem.title}</label>
                     </div>
@@ -42,6 +47,7 @@ ShowTodo.propTypes = {
     todoList: PropTypes.array.isRequired,
     setSingleTodo: PropTypes.func.isRequired,
     setIsEditing: PropTypes.func.isRequired,
+    handleDelete: PropTypes.func.isRequired,
 };
 
 export default ShowTodo;

@@ -1,36 +1,12 @@
 import PropTypes from "prop-types";
-import { useState } from "react";
+import useUpdateTodo from "../../../hooks/useUpdateTodo";
 
-const AddTodo = ({ getData, isEditing, setIsEditing, singleTodo, setSingleTodo }) => {
-    console.log("🟡 : singleTodo:", singleTodo);
+const AddTodo = ({ getData, isEditing, setIsEditing, singleTodo, setSingleTodo, todoList }) => {
+    console.log("re-rendered, AddTodo Component");
+    const { addNewTodo } = useUpdateTodo(getData);
     const isEditingForm = isEditing.length !== 0;
 
-    const addNewTodo = async (e) => {
-        const data = {
-            title: e.target[0].value,
-            description: e.target[1].value,
-            deadline: e.target[2].value,
-            priority: e.target[3].value || undefined,
-        };
-        try {
-            const resp = await fetch(`http://localhost:1902/api/v1/todo`, {
-                method: "POST",
-                body: JSON.stringify(data),
-                headers: {
-                    "content-type": "application/json",
-                },
-            });
-            getData();
-            console.log(resp);
-            if (resp.status === 201) {
-                // alert("Done");
-            } else {
-                alert("Not done", resp.status);
-            }
-        } catch (err) {
-            alert("Something went wrong!", err.message);
-        }
-    };
+    const allowedKeys = ["description", "deadline", "priority"];
 
     const editTodo = async (e) => {
         const data = {
@@ -39,10 +15,33 @@ const AddTodo = ({ getData, isEditing, setIsEditing, singleTodo, setSingleTodo }
             deadline: e.target[2].value,
             priority: e.target[3].value || undefined,
         };
+
+        const oldValues = todoList.find(({ _id }) => _id == isEditing);
+
+        const updatedValues = {};
+        allowedKeys.forEach((key) => {
+            if (oldValues[key] !== data[key]) {
+                if (key === "deadline") {
+                    const oldDeadline = oldValues.deadline.split("T")[0];
+                    const newDeadline = data.deadline;
+                    if (newDeadline !== oldDeadline) {
+                        updatedValues[key] = data[key];
+                    }
+                } else {
+                    updatedValues[key] = data[key];
+                }
+            }
+        });
+
+        if (Object.keys(updatedValues).length === 0) {
+            alert("No changes!");
+            return;
+        }
+
         try {
             const resp = await fetch(`http://localhost:1902/api/v1/todo/${isEditing}`, {
-                method: "PUT", // data replace
-                body: JSON.stringify(data),
+                method: "PATCH", // data replace
+                body: JSON.stringify(updatedValues),
                 headers: {
                     "content-type": "application/json",
                 },
@@ -80,8 +79,6 @@ const AddTodo = ({ getData, isEditing, setIsEditing, singleTodo, setSingleTodo }
             priority: "",
         });
     };
-
-    const [count, setCount] = useState(0);
 
     return (
         <div>
@@ -154,10 +151,11 @@ const AddTodo = ({ getData, isEditing, setIsEditing, singleTodo, setSingleTodo }
 
 AddTodo.propTypes = {
     getData: PropTypes.func.isRequired,
-    isEditing: PropTypes.bool.isRequired,
+    isEditing: PropTypes.string.isRequired,
     setIsEditing: PropTypes.func.isRequired,
     setSingleTodo: PropTypes.func.isRequired,
     singleTodo: PropTypes.object.isRequired,
+    todoList: PropTypes.array.isRequired,
 };
 
 export default AddTodo;

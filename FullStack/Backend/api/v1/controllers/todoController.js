@@ -65,3 +65,23 @@ exports.editTodo = async (req, res) => {
         });
     }
 };
+
+exports.deleteTodo = async (req, res) => {
+    try {
+        const { todoId } = req.params;
+        await Todo.findOneAndDelete({ _id: todoId });
+
+        res.status(204);
+        res.json({
+            status: "success",
+            message: "Todo added",
+        });
+    } catch (err) {
+        console.log("-------------\n❌", err.message, "\n----------------\n");
+        res.status(400);
+        res.json({
+            status: "fail",
+            message: `Todo not created: ${err.message}`,
+        });
+    }
+};
