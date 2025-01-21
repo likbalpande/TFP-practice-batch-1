@@ -2,8 +2,6 @@ import styles from "./showTodo.module.css";
 import PropTypes from "prop-types";
 
 const ShowTodo = ({ handleDelete, todoList, setSingleTodo, setIsEditing }) => {
-    console.log("re-rendered, ShowTodo Component");
-
     const handleEdit = (obj) => {
         setIsEditing(obj._id);
         const newObj = { ...obj };

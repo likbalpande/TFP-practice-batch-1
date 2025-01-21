@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 import useUpdateTodo from "../../../hooks/useUpdateTodo";
 
 const AddTodo = ({ getData, isEditing, setIsEditing, singleTodo, setSingleTodo, todoList }) => {
-    console.log("re-rendered, AddTodo Component");
     const { addNewTodo } = useUpdateTodo(getData);
     const isEditingForm = isEditing.length !== 0;
 
@@ -47,7 +46,6 @@ const AddTodo = ({ getData, isEditing, setIsEditing, singleTodo, setSingleTodo, 
                 },
             });
             getData();
-            console.log(resp);
             if (resp.status === 200) {
                 // alert("Done");
             } else {

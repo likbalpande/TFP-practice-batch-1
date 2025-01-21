@@ -1,5 +1,4 @@
 const useUpdateTodo = (getData) => {
-    console.log("re-rendered, useUpdateTodo");
     const addNewTodo = async (e) => {
         const data = {
             title: e.target[0].value,

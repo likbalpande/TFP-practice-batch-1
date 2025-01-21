@@ -5,7 +5,6 @@ import ShowTodo from "./components/showTodo";
 import { useEffect, useState } from "react";
 
 const Homepage = () => {
-    console.log("re-rendered, Homepage");
     const [singleTodo, setSingleTodo] = useState({
         title: "",
         description: "",
@@ -19,7 +18,6 @@ const Homepage = () => {
     useEffect(() => {
         // lifecycle : on component did mount
         // lifecycle : on component / state did update (dependency)
-        console.log("⭕️ useeffect is run now...");
         getData();
 
         // clean up function : before running on next useEffect
@@ -29,12 +27,6 @@ const Homepage = () => {
             console.log("🔥 cleaning up the side effects");
         };
     }, []);
-
-    useEffect(() => {
-        console.log("🟠 todolist wali useffect re-rendered");
-
-        return () => console.log("🔥🟡 cleaning up todolist dependecies");
-    }, [todoList]);
 
     const handleDelete = async (id) => {
         try {
