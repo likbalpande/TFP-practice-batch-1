@@ -12,11 +12,20 @@ exports.addTodo = async (req, res) => {
         });
     } catch (err) {
         console.log("-------------\n❌", err.message, "\n----------------\n");
-        res.status(400);
-        res.json({
-            status: "fail",
-            message: `Todo not created: ${err.message}`,
-        });
+        if (err.name === "ValidationError") {
+            // Handle MongoDB schema validation errors
+            res.status(400);
+            res.json({
+                status: "fail",
+                message: `Todo not created: ${err.message}`,
+            });
+        } else {
+            res.status(500);
+            res.json({
+                status: "fail",
+                message: `Internal Server Error`,
+            });
+        }
     }
 };
 
