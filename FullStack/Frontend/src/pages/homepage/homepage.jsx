@@ -3,8 +3,10 @@ import useGetTodos from "../../hooks/useGetTodos";
 import AddTodo from "./components/addTodo";
 import ShowTodo from "./components/showTodo";
 import { useEffect, useState } from "react";
+import Navbar from "../../components/navbar/navbar";
+import PropTypes from "prop-types";
 
-const Homepage = () => {
+const Homepage = ({ userInfo }) => {
     const [singleTodo, setSingleTodo] = useState({
         title: "",
         description: "",
@@ -46,6 +48,7 @@ const Homepage = () => {
 
     return (
         <div>
+            <Navbar userInfo={userInfo} />
             <Link to="/signup">Signup</Link>
             <AddTodo
                 isEditing={isEditing}
@@ -63,6 +66,10 @@ const Homepage = () => {
             />
         </div>
     );
+};
+
+Homepage.propTypes = {
+    userInfo: PropTypes.object.isRequired,
 };
 
 export default Homepage;

@@ -5,10 +5,26 @@ const bcrypt = require("bcrypt");
 const createOTP = async (req, res) => {
     try {
         const { body } = req;
-        const { email } = body;
+        const { email, isResend = false } = body;
 
         if (!email) {
             res.status(400).json({ status: "fail", message: "Email is required!" });
+            return;
+        }
+
+        // TODO: check for already registered user
+
+        // TODO: check if OTP is already sent --> expiry
+        const oldOTP = await OTP.findOne({
+            email: email,
+            createdAt: { $gte: Date.now() - 10 * 60 * 1000 },
+        }); // returns NULL or Obj
+
+        if (!isResend && oldOTP) {
+            res.status(403).json({
+                status: "fail",
+                message: "OTP is already sent to this email. Try Resend!",
+            });
             return;
         }
 

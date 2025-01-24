@@ -1,22 +1,25 @@
 import { useState } from "react";
 import useOTP from "../../hooks/useOTP";
 import useSignup from "../../hooks/useSignup";
+import Navbar from "../../components/navbar/navbar";
+import PropTypes from "prop-types";
 
-const Signup = () => {
+const Signup = ({ userInfo }) => {
     const [isOTPSent, setIsOTPSent] = useState(false);
+    const [isResendAllowed, setIsResendAllowed] = useState(false);
     const [fullName, setFullName] = useState("");
     const [email, setEmail] = useState("");
-    const { sendOtp } = useOTP({ setIsOTPSent });
-    const { registerUser } = useSignup();
+    const { sendOtp } = useOTP({ setIsOTPSent, setIsResendAllowed });
+    const { registerUser } = useSignup({ setIsResendAllowed });
 
-    const handleSendOtp = () => {
+    const handleSendOtp = (isResend) => {
         // validation : REGEX
         if (email.length <= 5) {
             alert("Invalid Email!");
             return;
         }
 
-        sendOtp(email);
+        sendOtp(email, isResend);
     };
 
     const handleCreateUser = (e) => {
@@ -40,6 +43,7 @@ const Signup = () => {
 
     return (
         <div>
+            <Navbar userInfo={userInfo} />
             <div>
                 <label>Full Name:</label>
                 <input type="text" name="full-name" value={fullName} onChange={(e) => setFullName(e.target.value)} />
@@ -72,10 +76,17 @@ const Signup = () => {
                     <button>Register</button>
                 </form>
             ) : (
-                <button onClick={handleSendOtp}>Send OTP</button>
+                <button onClick={() => handleSendOtp(false)}>Send OTP</button>
             )}
+            <button hidden={!isResendAllowed} onClick={() => handleSendOtp(true)}>
+                Resend OTP
+            </button>
         </div>
     );
+};
+
+Signup.propTypes = {
+    userInfo: PropTypes.object.isRequired,
 };
 
 export default Signup;

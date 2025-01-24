@@ -1,4 +1,4 @@
-const useSignup = () => {
+const useSignup = ({ setIsResendAllowed }) => {
     const registerUser = async ({ name, email, password, otp }) => {
         try {
             const userInfo = { name, email, password, otp };
@@ -9,7 +9,16 @@ const useSignup = () => {
                     "content-type": "application/json",
                 },
             });
-            console.log(res);
+            const data = await res.json();
+            if (res.status == 201) {
+                //....
+            } else if (res.status === 403 || res.status == 401) {
+                alert(data.message);
+                setIsResendAllowed(true);
+            } else if (res.status == 409) {
+                alert(data.message);
+                // redirect
+            }
         } catch (err) {
             alert(err.message);
         }
